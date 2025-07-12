@@ -1,0 +1,305 @@
+<!DOCTYPE html>  
+   <style>
+   header {
+        background-color: #f5b041;
+        padding: 10px 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 0px 0px rgba(0,0,0,0.1);
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:50px;
+        z-index:80;
+      }
+     h1 {
+        text-align: center;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 30px;
+        letter-spacing: 1.5px;
+      }
+
+      h2{
+        text-align: center;
+        padding-top: 20px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 20px;
+        letter-spacing: 1.5px;
+      }
+
+      h4{
+        text-align: center;
+        padding: 20px;
+        margin: 0px auto 0px auto;
+        font-weight: none;
+      }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      margin-right: 50px;
+      gap: 5px;
+      justify-content: space-between;
+    }
+
+    .header-right button {
+      padding: 5px 10px;
+      font-weight: bold;
+      cursor: pointer;
+      background-color: none;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .header-right button:hover {
+      background-color: #eee;
+      opacity: 80%;
+    }
+
+    .search-bar {
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+      /* Position the menu on the left */
+.menu {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+}
+
+.menu span {
+  height: 3px;
+  background-color: darkred;
+  border-radius: 2px;
+}
+
+body{
+  margin:0px auto 0px auto;
+  padding-top: 60px;
+  align-items: center;
+}
+
+.pics {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* optional spacing from header */
+}
+
+.pics img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Sidebar styling */
+.sidebar {
+  position: fixed;
+  top: 0;
+  padding-top: 60px;
+  left: -200px; /* Hidden off-screen by default */
+  width: 200px;
+  height: 100vh;
+  background-color: lightblue;
+  transition: left 0.3s ease;
+  z-index: 50;
+}
+
+.sidebar a {
+  padding-top: 30px;
+  padding-left:20px;
+  text-decoration: none;
+  color: white;
+  display: block;
+  transition: background 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #575757;
+}
+
+/* When active, bring sidebar into view */
+.sidebar.active {
+  left: 0;
+}
+
+.product-container{
+  position: relative;
+
+  padding: 20px;
+  width:100%;
+  border: none;
+}
+
+.product-info{
+  position: sticky;
+  top: 100px;
+  width: 100%;
+  background: white;
+  padding: 10px;
+}
+
+.price {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#size{
+  display: block;
+  margin-bottom: 10px;
+
+}
+
+.add-to-cart{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #f5b041;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.add-cart-row{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  gap:15px;
+  margin-top:20px;
+  background-color: #f5b041;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.quantity-box {
+  width: 50px;
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  appearance: none;
+}
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Hide off-screen initially */
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+/* When active, slide into view */
+.cart-sidebar.active {
+  right: 0;
+}
+</style>
+   <html> 
+    <header>
+        <h1>Oats and Bites </h1>
+        <div class="menu" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+       <div class="header-right">
+          <button onclick="toggleCart()">🛒</button>
+    <button onclick="window.location.href='index.html'">🏠</button>
+    <input type="text" class="search-bar" placeholder="Search..." />
+  </div>
+</header>
+
+
+<body>
+<Section>
+  <h2> Blackforest Cake </h2>
+  <div class="pics">
+    <img src="images/blackforest.png">
+  </div>
+</Section>
+<div class="sidebar" id="sidebar">
+  <a href="order.html">Cakes</a>
+  <a href="pudding.html">Pudding</a>
+  <a href="cookies.html">Cookies</a>
+  <a href="hampers.html">Hampers</a>
+</div>
+
+<h4>Black Forest cake — layered with fluffy chocolate sponge, sweet cherries, and whipped cream, then topped with dark chocolate shavings and a cherry on top. A timeless dessert that brings joy in every bite!</h4>
+
+<div class="product-container">
+  <div class="product-info">
+    <p class="price"> Rp 300.000</p>
+    <label for="size">Size:</label>
+    <select id="size" onchange="updatePrice()">
+      <option value="10">10 cm</option>
+      <option value="15x12">10 x 12 cm</option>
+      <option value="18">18 x 18cm</option>
+      <option value="20">20 x 20cm</option>
+        <option value="10x6">10 x 6 cm (Mini)</option>
+    </select>
+  </div>
+</div>
+<div class ="add-cart-row">
+     <input type="number" value="1" min="1" class="quantity-box" />
+      <span class="plus">+</span> Add to Cart
+    </button>
+    </div>
+
+    <div class="cart-sidebar" id="cartSidebar">
+  <h3 style="padding: 20px; border-bottom: 1px solid #ccc;">Your Cart</h3>
+  <p style="padding: 20px;">Your cart is currently empty.</p>
+  <button onclick="toggleCart()" style="position:absolute; top:10px; right:10px; border:none; background:none; font-size:20px; cursor:pointer;">×</button>
+</div>
+
+</body>
+
+<script>
+  function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+  }
+
+  
+  function updatePrice() {
+    const size = document.getElementById("size").value;
+    const priceElement = document.querySelector(".price");
+    
+    let price = "Rp 325.000"; // default
+
+    if (size === "10x6") {
+      price = "Rp 80.000";
+    } else if (size === "15x12") {
+      price = "Rp 425.000";
+    } else if (size === "18") {
+      price = "Rp 550.000";
+    } else if (size === "20") {
+      price = "Rp 675.000";
+    }
+
+    priceElement.textContent = price;
+  }
+  function toggleCart() {
+  document.getElementById("cartSidebar").classList.toggle("active");
+}
+</script>
+
+   </html>

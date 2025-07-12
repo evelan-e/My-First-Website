@@ -1,0 +1,423 @@
+   <!DOCTYPE html>  
+   <style>
+   header {
+        background-color: #f5b041;
+        padding: 10px 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 0px 0px rgba(0,0,0,0.1);
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:50px;
+        z-index:80;
+      }
+     h1 {
+        text-align: center;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 30px;
+        letter-spacing: 1.5px;
+      }
+
+      h2{
+        text-align: center;
+        padding-top: 20px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 20px;
+        letter-spacing: 1.5px;
+      }
+
+  
+    
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+.cart-1-container {
+  border: 1px solid #ccc;   /* Fix border syntax */
+  border-radius: 5px;
+  margin: 10px 20px;
+  padding: 10px;
+  background-color: #fdfdfd;
+}
+
+.cart-1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.cart-1 img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.bottom-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.cart-1-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity-box {
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.plus {
+  background-color: #f5b041;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+/* Position the menu on the left */
+.menu {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+}
+
+.menu span {
+  height: 3px;
+  background-color: darkred;
+}
+
+body{
+    margin:50px auto 0px auto;
+  padding-top: 40px;
+}
+
+  h4{
+  text-align: center;
+  padding: 20px;
+  margin: 0px auto 0px auto;
+  font-weight: none;
+  }
+
+  h5 {
+  margin: 0;
+  font-weight: normal;
+  }
+
+.pics {
+  display: flex;
+    justify-content: center;
+  margin-top: 20px; /* optional spacing from header */
+}
+
+.pics img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Sidebar styling */
+.sidebar {
+  position: fixed;
+  top: 0;
+  padding-top: 60px;
+  left: -200px; /* Hidden off-screen by default */
+  width: 200px;
+  height: 100vh;
+  background-color: lightblue;
+  transition: left 0.3s ease;
+  z-index: 50;
+}
+
+.sidebar a {
+  padding-top: 30px;
+  padding-left:20px;
+  text-decoration: none;
+  color: white;
+  display: block;
+  transition: background 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #575757;
+}
+
+/* When active, bring sidebar into view */
+.sidebar.active {
+  left: 0;
+}
+
+.product-container{
+  padding: 40px;
+  width:100%;
+  border: none;
+}
+
+
+.product-info{
+  position: sticky;
+  top: 100px;
+  width: 100%;
+  background: white;
+  padding: 10px;
+}
+
+.price {
+  font-weight: bold;
+  margin-bottom: px;
+}
+
+#size{
+  display: block;
+  margin-bottom: 10px;
+
+}
+
+.add-cart-row{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  gap:15px;
+  margin-top:20px;
+  background-color: #f5b041;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.quantity-box {
+  width: 50px;
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  appearance: none;
+}
+
+
+ .header-right {
+      margin-right: 50px;
+      gap:5px;
+    }
+
+    .header-right button {
+      padding: 5px 10px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .header-right button:hover {
+      background-color: #eee;
+      opacity: 80%;
+    }
+
+    .search-bar {
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Hide off-screen initially */
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+
+/* When active, slide into view */
+.cart-sidebar.active {
+  right:0;
+}
+
+.checkout-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #f5b041;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkout-btn:hover {
+  background-color: #e4a73c;
+}
+
+
+</style>
+   <html> 
+    <header>
+        <h1>Oats and Bites </h1>
+        <div class="menu" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      
+
+      
+  <div class="header-right">
+          <button onclick="toggleCart()">🛒</button>
+    <button onclick="window.location.href='index.html'">🏠</button>
+    <input type="text" class="search-bar" placeholder="Search..." />
+  </div>
+         
+ 
+</header>
+
+
+<body>
+<Section>
+  <h2> Almond Caramel Cake </h2>
+  <div class="pics">
+    <img src="images/almond-caramel.png">
+  </div>
+</Section>
+<div class="sidebar" id="sidebar">
+  <a href="order.html">Cakes</a>
+  <a href="pudding.html">Pudding</a>
+  <a href="cookies.html">Cookies</a>
+  <a href="hampers.html">Hampers</a>
+</div>
+
+<h4>Almond Caramel Cake — a moist, buttery sponge layered with velvety caramel and topped with toasted almonds for the perfect crunch. Each bite 
+  delivers a balance of sweetness and warmth, making it an irresistible treat for
+   caramel lovers and nut enthusiasts alike. Perfect for celebrations or a comforting 
+   afternoon slice. </h4>
+
+<div class="product-container">
+  <div class="product-info">
+    <p class="price"> Rp 325.000</p>
+    <label for="size">Size:</label>
+    <select id="size" onchange="updatePrice()">
+      <option value="10">10 cm</option>
+      <option value="15x12">10 x 12 cm</option>
+      <option value="18">18 x 18cm</option>
+      <option value="20">20 x 20cm</option>
+        <option value="10x6">10 x 6 cm (Mini)</option>
+    </select>
+  </div>
+</div>
+<div class ="add-cart-row">
+     <input type="number" value="1" min="1" class="quantity-box" />
+      <span class="plus">+</span> Add to Cart
+    </button>
+    </div>
+
+<div class="cart-sidebar" id="cartSidebar">
+  <h3 style="padding: 20px; border-bottom: 1px solid #ccc;">Your Cart</h3>
+  <div class="cart-1-container">
+  <div class="cart-1">
+    <img src="images/almond-caramel.png" />
+    <div class="cart-1-details">
+      <h4>Almond Caramel</h4>
+    <h5>Rp 300.000</h5>
+<div class="bottom-row"></div>
+    <div class="quantity-controls">
+      <input type="number" value="1" min="1" class="quantity-box" />
+      <span class="plus">+</span>
+    </div>
+  </div>
+
+</div>
+</div>
+
+  <p style="padding: 20px;">Your cart is currently empty.</p>
+  <button onclick="toggleCart()" style="position:absolute; top:10px; right:10px; border:none; background:none; font-size:20px; cursor:pointer;">×</button>
+  <div class="checkout-container">
+    <button class="checkout-btn" onclick="window.location.href='checkout.html'">Checkout</button>
+  </div>
+</div>
+</body>
+
+<script>
+  function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+  }
+
+  
+  function updatePrice() {
+    const size = document.getElementById("size").value;
+    const priceElement = document.querySelector(".price");
+    
+    let price = "Rp 325.000"; // default
+
+    if (size === "10x6") {
+      price = "Rp 80.000";
+    } else if (size === "15x12") {
+      price = "Rp 450.000";
+    } else if (size === "18") {
+      price = "Rp 575.000";
+    } else if (size === "20") {
+      price = "Rp 650.000";
+    }
+
+    priceElement.textContent = price;
+  }
+function toggleCart() {
+  const cart = document.getElementById("cartSidebar");
+  cart.classList.toggle("active");
+
+  // Hide empty message if an item exists
+  const cartItems = document.querySelectorAll(".cart-1");
+  const emptyMessage = cart.querySelector("p");
+  if (cartItems.length > 0) {
+    emptyMessage.style.display = "none";
+  } else {
+    emptyMessage.style.display = "block";
+  }
+}
+</script>
+
+   </html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OATS AND BITES</title>
+    <style>
+html {
+  scroll-behavior: smooth;
+}
+
+header {
+        background-color: #f5b041;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 0px 0px rgba(0,0,0,0.1);
+        position: fixed;
+        width: 100%;
+        z-index:100;
+      }
+  header h1 {
+        margin: 0px 30px;
+        font-size: 20px;
+        letter-spacing: 1px;
+      }
+  .logo { 
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+      }
+
+  .nav-links {
+  display: flex;
+  gap: 15px; /* Smaller gap between links */
+  align-items: center;
+}
+
+.nav-links a {
+  color: #4a2c12;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 5px 10px;
+  transition: color 0.3s;
+  padding-right: 30px;
+}
+
+.nav-links a:hover {
+  color: #8b4513;
+}
+
+h2 {
+        font-family: 'Dancing Script';
+        font-size: 32px;
+        color: black; /* light brown / soft caramel */
+        margin: 0;
+        text-align: center;
+        }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.display {
+  margin-top: 130px;
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.cake-images {
+  display: flex;
+  position: relative;
+  width: 100%; /* changed from max-width: 100vh */
+  height: 100%;
+  align-items: flex-end;
+  margin-bottom: 50px;
+  background-color: #f4a460;
+}
+
+.cake-images img {
+  width: 50%;      /* Two images side by side */
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.images img {
+  display: block; /* not flex on an img */
+  object-fit: cover;
+  margin-top: 200px;
+  width: 100%;
+  background-color: lightsalmon;
+  margin-bottom: 20px;
+}
+
+.order-btn {
+  margin-top: 10px;
+  position: fixed;
+  bottom: 40px;
+  right: 60px;
+  padding: 15px 20px;
+  color: white;
+  background-color: rgb(88, 63, 19);
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 300;
+  transition: background-color 0.3s ease;
+}
+
+.see-more-btn{
+  position: relative;
+  width: 140px;
+  bottom: 70px;
+  right: 120px;
+  padding: 20px 10px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.see-more-btn a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.about {
+  background-color: #fff8e7; /* soft, warm tone */
+  padding:50px 30px;
+  font-family: 'Georgia', serif;
+  color: #4a2c12;
+  line-height: 1.8;
+
+}
+
+.about h2 {
+  font-size: 35px;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  color: #8b4513;
+  border-bottom: 2px solid #d2b48c;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+
+.aboutus {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center;     /* centers vertically (optional) */
+  gap: 30px;
+  flex-wrap: wrap;         /* allows wrapping on smaller screens */
+  margin-bottom: 30px; 
+      /* optional: space between images and text */
+}
+
+.aboutus img {
+  max-width: 300px;
+  width: 100%;
+  height: auto; /* better than "height: max" */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+  flex: 2;
+  min-width: 250px;
+}
+
+.about-text p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+  text-align:justify;
+  margin-top: 20px;
+}
+
+footer{
+  text-align:center
+}
+    section {
+  margin-top: 70px;
+  background-color: #f4a460;
+  padding: 30px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.options > div {
+  width: 210px;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 13px 13px 120px;
+  background-color: white;
+  text-align: center;
+}
+    .cakes a{
+      margin-top: 0px;
+    }
+.cakes h4 {
+  margin-bottom: 4px; /* reduce space below the heading */
+}
+
+.cakes p {
+  margin-bottom: 2px; /* optional: reduce space below the paragraph */
+}
+
+
+    .options img{
+      width: 210px;
+      height: 250px;
+      border-radius: 10px;
+      object-fit: fill;
+    }
+
+/*CONTACT US SECTION*/
+.contact {
+  background-color: #fff8e7;
+  padding: 50px 30px;
+  text-align: center;
+  font-family: 'Georgia', serif;
+  color: #4a2c12;
+}
+
+.contact h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #8b4513;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #d2b48c;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.contact-options {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #4a2c12;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #d2691e;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+
+
+</style>
+
+<header>
+  <img src="images/logo.jpg" alt="oats and bites logo" class="logo">
+  <h1>OATS AND BITES</h1>
+  <nav class="nav-links">
+    <a href="#about-section">About Us</a>
+    <a href="order.html">Shop</a>
+    <a href="#contactus-section">Contact Us</a>
+  </nav>
+</header>
+
+<body>
+  <div class="display">
+        <div class="cake-images">
+            <img src="images/cake.jpg" alt="Customize your own cake">
+            <img src="images/cake2.jpg" alt="Signature Cakes">
+            <a href="seemore.html" class="see-more-btn">See more</a>
+                </div>
+            </div>
+        </div>
+   <a href ="order.html">  
+   <button class="order-btn">ORDER NOW</button></a>
+    </div>
+  </div>
+
+
+<section class="Category">
+  <h2> Shop by category</h2>
+  <div class="options">
+   <div class= "cookies">
+        <div class="oatmeal">
+            <img src="images/kuekering.png">
+            <h4>Cookies</h4>
+            <a href="cookies.html">
+              <h7>see more</h7>
+              </a>
+        </div>
+      </div>
+      <div class="pudding">
+        <img src="images/puding.png">
+        <h4>Pudding</h4>
+        <a href="pudding.html">
+          see more
+        </a>
+      </div>
+      <div class="cakes">
+        <img src="images/bolu.png">
+        <h4>Cakes</h4>
+        <p> Customize your own cake or</p>
+        <a href="order.html">
+          see more
+        </a>
+      </div>
+      <div class="hampers">
+        <img src="images/hampers.png">
+        <h4>Hampers</h4>
+        <a href="hampers.html">
+          see more
+        </a>
+      </div>
+</section>
+
+
+<section class="about" id="about-section">
+  <h2>About Us</h2>
+
+  <div class="aboutus">
+    <img src="images/bolu.jpg" alt="about us pic">
+    <img src="images/chiaseed.jpg">
+    <img src="images/cheesecake.jpg">
+  </div>
+
+  <div class="about-text">
+    <p> Our journey began in our cozy home kitchen. My mom has always been amazing at cooking and baking, but during the pandemic, she started experimenting with even more recipes. Everything she made was so delicious that our family and friends couldn’t stop adoring it. We all encouraged her to start selling her bakes—and that’s how her small baking business began.</p>
+    <p>As her passion grew, she started exploring new recipes, including bolu molen (a soft sponge cake filled with banana) and lapis legit (a rich Indonesian layered cake made with warm spices and incredible patience). Over time, she expanded her creations to include celebration cakes and fully customized designs with fondant or cream decorations—each one carefully made with love and attention to detail.</p>
+    <p>  I created this website to help share her story and support her business. It’s a project that brings us closer as a family and allows more people to enjoy the joy and warmth she puts into every cake. We hope her bakes make your special moments even sweeter—just like they’ve done for us.
+  </div>
+  </section>
+
+<section class="contactus" id="contactus-section">
+  <h2>Contact Us</h2>
+  <div class="contact-options">
+    <a href="https://www.instagram.com/oats.bites" target="_blank" class="contact-link">
+      <img src="images/ig-icon.png" alt="Instagram" class="icon">
+      @oats.bites
+    </a>
+    <a href="https://wa.me/628121104100" target="_blank" class="contact-link">
+      <img src="images/wa-icon.png" alt="WhatsApp" class="icon">
+      +62 812 110 4100
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Oats and Bites. All rights reserved. </p>
+  </p>
+</footer>
+</section>
+</body>
+
+</html>
